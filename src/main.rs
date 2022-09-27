@@ -142,7 +142,7 @@ fn raster(screen: &mut Vec<Vec<u8>>, depth_buf: &mut Vec<Vec<f32>>, triangle: [V
             let real_x = x as f32 / screen[0].len() as f32 * 2. - 1.;
             let real_y = 1. - (y as f32 / screen.len() as f32 * 2.);
             let z = surf.at_x_y(real_x, real_y);
-            if y >= screen.len() {
+            if y >= screen.len() || x >= screen[0].len() {
                 break;
             }
             if z < 1. && z < depth_buf[y][x] {
